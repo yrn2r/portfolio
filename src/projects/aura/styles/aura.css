@@ -1,0 +1,70 @@
+/* AURA — scoped project styles. Everything lives under .aura-scope so it can
+   never leak into the portfolio's global styles or vice versa. */
+
+.aura-scope {
+  --aura-accent: #3c4a3b;
+  background-color: #f5f1e8;
+  color: #211e1b;
+}
+
+/* The portfolio's global base styles set a tight letter-spacing on all h1-h4
+   (tuned for Space Grotesk) and a near-white focus outline (tuned for the
+   navy portfolio background). Both would be wrong here, so they're
+   overridden with higher specificity — no portfolio files are touched. */
+.aura-scope h1,
+.aura-scope h2,
+.aura-scope h3,
+.aura-scope h4 {
+  letter-spacing: normal;
+}
+
+.aura-scope :focus-visible {
+  outline: 1.5px solid #211e1b;
+  outline-offset: 3px;
+}
+
+.aura-scope ::selection {
+  background: var(--aura-accent);
+  color: #f5f1e8;
+}
+
+.aura-scope .aura-progress {
+  height: 1.5px;
+  background: rgba(33, 30, 27, 0.14);
+  overflow: hidden;
+  border-radius: 999px;
+}
+
+.aura-scope .aura-progress-fill {
+  height: 100%;
+  background: var(--aura-accent);
+  transition: width 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.aura-scope .aura-bar {
+  height: 3px;
+  background: rgba(33, 30, 27, 0.12);
+  border-radius: 999px;
+  overflow: hidden;
+}
+
+.aura-scope .aura-bar-fill {
+  height: 100%;
+  background: var(--aura-accent);
+  border-radius: 999px;
+}
+
+.aura-scope .aura-accent-text {
+  color: var(--aura-accent);
+}
+
+.aura-scope .aura-accent-bg {
+  background: var(--aura-accent);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .aura-scope * {
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
+  }
+}
